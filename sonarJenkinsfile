@@ -14,7 +14,7 @@ stages
 
 
 stage ('run sonar and build the code')
-{ steps { withSonarQubeEnv(credentialsId: 'sonar' , installationName: 'sonar') { withMaven(globalMavenSettingsConfig: 'c583f974-18c4-482d-925c-c6b3dbb04489', jdk: 'LOCALJDK', maven: 'LOCALMVN', mavenSettingsConfig: 'b4a17510-35d6-427e-ad2d-a0ee2d4b24c5', traceability: true) 
+{ steps { withSonarQubeEnv(credentialsId: 'sonar' , installationName: 'sonar') { withMaven(globalMavenSettingsConfig: 'bdd550d2-4d91-4a69-97d3-877d81cd26ba', jdk: 'local_jdk', maven: 'loal_mvn', mavenSettingsConfig: '26308a25-93b7-4a86-972b-6e63e44e03b3', traceability: true) 
  {  sh 'mvn package sonar:sonar' } 
 } } }
 
