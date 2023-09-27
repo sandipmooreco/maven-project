@@ -20,9 +20,16 @@ pipeline{
                 {withMaven(globalMavenSettingsConfig: 'bdd550d2-4d91-4a69-97d3-877d81cd26ba', jdk: 'local_jdk', maven: 'loal_mvn', mavenSettingsConfig: '26308a25-93b7-4a86-972b-6e63e44e03b3', traceability: true) {
                 sh 'mvn package sonar:sonar'
                     }}}
+        stage('SCP to Deploy Server')
+        {
+            steps {
+                sshagent (credentials: ['deploy-dev']) {
+                sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.11.3:/usr/share/tpmcat/webapps/'
+            }
+            }
+
         }
 
     
     }
 }
-
