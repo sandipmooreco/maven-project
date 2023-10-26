@@ -28,7 +28,7 @@ pipeline
   {steps {withDockerRegistry(credentialsId: 'docker_creds', url: 'https://index.docker.io/v1/')
   {
     docker push 17091332/docker-tomcat-oct23:latest
-  }
+  } }
 
 }
 }
